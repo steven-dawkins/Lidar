@@ -6,6 +6,8 @@ export interface HomeScope extends ng.IScope {
 
 export class HomeController {
 	constructor($scope : HomeScope){
-		$scope.Message = 'Welcome to y!'
+		$scope.Message = 'Welcome to y!';
+        
+        
 	}
 }

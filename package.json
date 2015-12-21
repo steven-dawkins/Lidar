@@ -15,7 +15,9 @@
   "dependencies": {
     "angular": "^1.4.8",
     "angular-route": "^1.4.8",
+    "bluebird": "^3.1.1",
     "bootstrap": "^3.3.6",
+    "fs-promise": "^0.3.1",
     "nw": "^0.12.3"
   }
 }
