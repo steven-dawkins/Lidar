@@ -1,7 +1,7 @@
 ///<reference path="../typings/angularjs/angular.d.ts" />
 var HomeController = (function () {
     function HomeController($scope) {
-        $scope.Message = 'Welcome to y!';
+        $scope.Message = "Welcome to y!";
     }
     return HomeController;
 })();
