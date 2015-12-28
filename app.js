@@ -1,16 +1,7 @@
 "use strict";
 var bluebird = require("bluebird");
+var Logger = require("./src/Logger");
 var fspromise = require("fs-promise");
-var Logger = (function () {
-    function Logger() {
-        var logModule = require("log");
-        this.log = new logModule("info");
-    }
-    Logger.prototype.info = function (str) {
-        this.log.info(str);
-    };
-    return Logger;
-})();
 var log = new Logger();
 function GetMessage() {
     return "Hello from y!";
@@ -48,6 +39,7 @@ var LidarLoader = (function () {
     };
     return LidarLoader;
 })();
+exports.LidarLoader = LidarLoader;
 log.info(GetMessage());
 var lidar = new LidarLoader("./LIDAR-DTM-1M-SU49/su4090_DTM_1m.asc");
 lidar.Load()

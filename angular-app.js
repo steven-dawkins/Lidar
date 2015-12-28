@@ -1,6 +1,6 @@
 ///<reference path="typings/angularjs/angular.d.ts" />
 ///<reference path="typings/angularjs/angular-route.d.ts" />
-var hc = require('./controllers/home');
+var hc = require('./src/controllers/home');
 angular.module('y', ['ngRoute'])
     .controller('homeController', hc.HomeController)
     .config(['$routeProvider', function ($routeProvider) {

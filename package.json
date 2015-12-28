@@ -10,6 +10,9 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
+    "grunt": "^0.4.5",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-mocha-test": "^0.12.7",
     "mocha": "^2.3.4"
   },
   "dependencies": {
@@ -19,6 +22,7 @@
     "bootstrap": "^3.3.6",
     "fs-promise": "^0.3.1",
     "log": "^1.4.0",
-    "nw": "^0.12.3"
+    "nw": "^0.12.3",
+    "three": "^0.73.0"
   }
 }

@@ -1,23 +1,9 @@
 "use strict";
 
 import bluebird = require("bluebird");
+import Logger = require("./src/Logger");
 let fspromise = require("fs-promise");
 
-class Logger
-{
-    private log: any;
-
-    public constructor()
-    {
-        let logModule = require("log");
-        this.log = new logModule("info");
-    }
-
-    public info(str: string | {}): void
-    {
-        this.log.info(str);
-    }
-}
 
 let log = new Logger();
 
@@ -25,7 +11,7 @@ export function GetMessage(): string {
 	return "Hello from y!";
 }
 
-class LidarLoader
+export class LidarLoader
 {
     private NROWS_FIELD: string = "nrows";
 
