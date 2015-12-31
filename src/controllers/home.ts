@@ -1,7 +1,7 @@
-///<reference path="../typings/angularjs/angular.d.ts" />
+///<reference path="../../typings/angularjs/angular.d.ts" />
 
-import appModule = require("../app");
-import Logger = require("./src/Logger");
+import appModule = require("../../app");
+import Logger = require("../Logger");
 
 let log = new Logger();
 
