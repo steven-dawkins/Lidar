@@ -1,7 +1,7 @@
-///<reference path="typings/angularjs/angular.d.ts" />
-///<reference path="typings/angularjs/angular-route.d.ts" />
+///<reference path="../typings/angularjs/angular.d.ts" />
+///<reference path="../typings/angularjs/angular-route.d.ts" />
 
-import hc = require("./src/controllers/home");
+import hc = require("./controllers/home");
 import THREE = require("three");
 
 angular.module("y", ["ngRoute"])
@@ -29,7 +29,7 @@ let global: any;
         let camera, scene, renderer;
         let geometry, material, mesh;
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", event => {
     init();
     animate();
 });

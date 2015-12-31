@@ -1,7 +1,7 @@
 "use strict";
 
 import bluebird = require("bluebird");
-import Logger = require("./src/Logger");
+import Logger = require("./Logger");
 let fspromise = require("fs-promise");
 
 
