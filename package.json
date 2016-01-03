@@ -2,11 +2,11 @@
   "name": "y",
   "version": "0.0.0",
   "author": "author",
-  "main": "index.html",
+  "main": "src/index.html",
   "scripts": {
     "build": "tsc -p ./",
     "test": "npm run build && node_modules\\.bin\\mocha --recursive",
-    "start": "npm run build && node_modules\\.bin\\nw ./src/"
+    "start": "npm run build && node_modules\\.bin\\nw ./"
   },
   "devDependencies": {
     "chai": "^3.4.1",
