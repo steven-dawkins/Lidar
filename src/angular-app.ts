@@ -6,35 +6,35 @@ import THREE = require("three");
 
 angular.module("y", ["ngRoute"])
 	.controller("homeController", hc.HomeController)
-    // .directive("time", ['$interval', 'dateFilter', function($interval, dateFilter) {
+    .directive("time", ['$interval', 'dateFilter', function($interval, dateFilter) {
 
-    // function link(scope, element, attrs) {
-    //     let format,
-    //         timeoutId;
+    function link(scope, element, attrs) {
+        let format,
+            timeoutId;
 
-    //     function updateTime() {
-    //     element.text(dateFilter(new Date(), format));
-    //     }
+        function updateTime() {
+        element.text(dateFilter(new Date(), format));
+        }
 
-    //     scope.$watch(attrs.myCurrentTime, function(value) {
-    //     format = value;
-    //     updateTime();
-    //     });
+        scope.$watch(attrs.myCurrentTime, function(value) {
+        format = value;
+        updateTime();
+        });
 
-    //     element.on('$destroy', function() {
-    //     $interval.cancel(timeoutId);
-    //     });
+        element.on('$destroy', function() {
+        $interval.cancel(timeoutId);
+        });
 
-    //     // start the UI update process; save the timeoutId for canceling
-    //     timeoutId = $interval(function() {
-    //     updateTime(); // update DOM
-    //     }, 1000);
-    // }
+        // start the UI update process; save the timeoutId for canceling
+        timeoutId = $interval(function() {
+        updateTime(); // update DOM
+        }, 1000);
+    }
 
-    // return {
-    //     link: link
-    // };
-    // }])
+    return {
+        link: link
+    };
+    }])
 	.config(["$routeProvider", ($routeProvider: angular.route.IRouteProvider) => {
 
 			$routeProvider.when("/home", {
