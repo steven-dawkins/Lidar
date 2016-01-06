@@ -53,7 +53,7 @@ export class LidarLoader
 
         for (let i = 0; i < nrows; i++)
         {
-            result[i] = lines[i + 6].split(" ").map(str => parseFloat(str));
+            result[i] = lines[i + 6].split(" ").map(str => parseFloat(str)).filter(v => !isNaN(v));
         }
 
         return result;

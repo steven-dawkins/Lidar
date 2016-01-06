@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc -p ./",
     "test": "npm run build && node_modules\\.bin\\mocha --recursive",
-    "start": "npm run build && node_modules\\.bin\\nw ./"
+    "start": "npm run build && node_modules\\.bin\\nw ./",
+    "watch": "grunt watch"
   },
   "devDependencies": {
     "chai": "^3.4.1",
