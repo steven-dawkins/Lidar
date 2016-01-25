@@ -4,7 +4,7 @@
 import hc = require("./controllers/home");
 import THREE = require("three");
 import Logger = require("./Logger");
-import app = require("./app");
+import LidarLoader = require("./LidarLoader");
 
 let log = new Logger();
 
@@ -16,7 +16,7 @@ angular.module("y", ["ngRoute"])
         let format,
             timeoutId;
 
-        function updateTime() {
+        function updateTime(): void {
             element.text(dateFilter(new Date(), format));
         }
 
@@ -67,6 +67,7 @@ class LidarRenderer
     private material;
     private mesh: THREE.Mesh;
     private object: THREE.Mesh;
+    private group: THREE.Group;
 
     constructor()
     {
@@ -121,9 +122,9 @@ class LidarRenderer
         this.scene.add( this.mesh );
 
         let geom = new THREE.Geometry();
-        let v1 = new THREE.Vector3(0,0,0);
-        let v2 = new THREE.Vector3(0,500,0);
-        let v3 = new THREE.Vector3(0,500,500);
+        let v1 = new THREE.Vector3(0, 0, 0);
+        let v2 = new THREE.Vector3(0, 500, 0);
+        let v3 = new THREE.Vector3(0, 500, 500);
 
         geom.vertices.push(v1);
         geom.vertices.push(v2);
@@ -139,12 +140,13 @@ class LidarRenderer
 
         this.scene.add(this.object);
 
-        let lidar = new app.LidarLoader("./LIDAR-DTM-1M-SU49/su4090_DTM_1m.asc");
+        let lidar = new LidarLoader("./LIDAR-DTM-1M-SU49/su4090_DTM_1m.asc");
+
+        this.group = new THREE.Group();
 
         lidar.Load()
             .then(props =>
             {
-                let group = new THREE.Group();
 
                 let material = new THREE.LineBasicMaterial({
                     color: 0x0000ff
@@ -163,10 +165,10 @@ class LidarRenderer
 
 
                     let line = new THREE.Line(geometry, material);
-                    group.add(line);
+                    this.group.add(line);
                 }
 
-                this.scene.add(group);
+                this.scene.add(this.group);
 
                 log.info(props.length);
                 log.info("Loaded data");
@@ -192,6 +194,9 @@ class LidarRenderer
 
         this.object.rotation.x += 0.01;
         this.object.rotation.y += 0.02;
+
+        this.group.rotation.x += 0.001;
+        this.group.rotation.y += 0.002;
 
 
         this.renderer.render( this.scene, this.camera );

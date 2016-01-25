@@ -5,12 +5,12 @@ import bluebird = require("bluebird");
 
 let expect = chai.expect;
 
-import app = require("../src/app");
+import LidarLoader = require("../src/LidarLoader");
 
 describe("Lidar loader tests", () => {
 	it("Should load lidar data!", () => {
 
-        let loader = new app.LidarLoader("./LIDAR-DTM-1M-SU49/su4090_DTM_1m.asc");
+        let loader = new LidarLoader("./LIDAR-DTM-1M-SU49/su4090_DTM_1m.asc");
 
         let data = loader.Load();
 

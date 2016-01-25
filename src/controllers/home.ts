@@ -1,7 +1,7 @@
 ///<reference path="../../typings/angularjs/angular.d.ts" />
 
-import appModule = require("../app");
 import Logger = require("../Logger");
+import LidarLoader = require("../LidarLoader");
 
 let log = new Logger();
 
@@ -13,7 +13,7 @@ export class HomeController {
 	constructor($scope: IHomeScope){
 		$scope.Message = "Welcome to y!";
 
-        let lidar = new appModule.LidarLoader("./LIDAR-DTM-1M-SU49/su4090_DTM_1m.asc");
+        let lidar = new LidarLoader("./LIDAR-DTM-1M-SU49/su4090_DTM_1m.asc");
 
         lidar.Load()
             .then(props =>
