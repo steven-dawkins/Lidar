@@ -4,7 +4,6 @@ import bluebird = require("bluebird");
 import Logger = require("./Logger");
 let fspromise = require("fs-promise");
 
-
 let log = new Logger();
 
 export function GetMessage(): string {
