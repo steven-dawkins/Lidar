@@ -12,7 +12,7 @@ angular.module("y", ["ngRoute"])
 	.controller("homeController", hc.HomeController)
     .directive("time", ["$interval", "dateFilter", function($interval, dateFilter) {
 
-    function link(scope, element, attrs) {
+    function link(scope, element, attrs): void {
         let format,
             timeoutId;
 
@@ -69,7 +69,7 @@ class LidarRenderer
     private object: THREE.Mesh;
     private group: THREE.Group;
 
-    constructor()
+    constructor(container: HTMLElement)
     {
         // function onDocumentMouseMove( event ) {
 
@@ -177,10 +177,11 @@ class LidarRenderer
 
 
         this.renderer = new THREE.WebGLRenderer();
-        this.renderer.setSize( window.innerWidth, window.innerHeight );
+        this.renderer.setSize( container.clientWidth, container.clientHeight );
 
-        document.body.appendChild( this.renderer.domElement );
-        // document.appendChild( renderer.domElement );
+        log.info(`${container.clientWidth}, ${container.clientHeight}`);
+
+        container.appendChild( this.renderer.domElement );
     }
 
     public animate(): void
@@ -205,6 +206,6 @@ class LidarRenderer
 
 document.addEventListener("DOMContentLoaded", event => {
 
-    let r = new LidarRenderer();
+    let r = new LidarRenderer(document.body);
     r.animate();
 });
