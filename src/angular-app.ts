@@ -60,11 +60,11 @@ global.document = window.document;
 class LidarRenderer
 {
 
-    private camera;
+    private camera: THREE.Camera;
     private scene: THREE.Scene;
-    private renderer;
-    private geometry;
-    private material;
+    private renderer: THREE.WebGLRenderer;
+    private geometry: THREE.BoxGeometry;
+    private material: THREE.MeshBasicMaterial;
     private mesh: THREE.Mesh;
     private object: THREE.Mesh;
     private group: THREE.Group;
