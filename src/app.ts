@@ -11,6 +11,7 @@ export function GetMessage(): string {
 
 log.info(GetMessage());
 
+// http://environment.data.gov.uk/ds/survey#/download?grid=SU49
 let lidar = new LidarLoader("./LIDAR-DTM-1M-SU49/su4090_DTM_1m.asc");
 
 lidar.Load()
