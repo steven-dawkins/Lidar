@@ -9,6 +9,19 @@
     "start": "npm run build && node_modules\\.bin\\nw ./",
     "watch": "grunt watch"
   },
+  "window": {
+    "title": "node-webkit demo",
+    "icon": "link.png",
+    "toolbar": true,
+    "frame": true,
+    "width": 800,
+    "height": 600,
+    "position": "mouse",
+    "min_width": 800,
+    "min_height": 600,
+    "max_width": 800,
+    "max_height": 600
+  },
   "devDependencies": {
     "chai": "^3.4.1",
     "grunt": "^0.4.5",
